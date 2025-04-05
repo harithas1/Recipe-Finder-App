@@ -229,10 +229,20 @@ function App() {
     localStorage.setItem("favorites", JSON.stringify(favourites));
   }, [favourites]);
 
+  // useEffect(() => {
+  //   const currentPath = location.pathname.replace("/", "") || "home";
+  //   document.querySelector(`[data-value="${currentPath}"]`)?.click();
+  // }, [location]);
+
   useEffect(() => {
-    const currentPath = location.pathname.replace("/", "") || "home";
-    document.querySelector(`[data-value="${currentPath}"]`)?.click();
+    if (location.pathname === "/") {
+      navigate("/recipes", { replace: true });
+    } else {
+      const currentPath = location.pathname.replace("/", "");
+      document.querySelector(`[data-value="${currentPath}"]`)?.click();
+    }
   }, [location]);
+
 
   return (
     <div>
