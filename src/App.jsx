@@ -247,7 +247,7 @@ function App() {
   return (
     <div>
       <Tabs
-        defaultValue={location.pathname.replace("/", "") || "home"}
+        defaultValue={location.pathname.replace("/", "") || "recipes"}
         onValueChange={(value) => navigate(`/${value}`)}
         className="w-full"
       >
